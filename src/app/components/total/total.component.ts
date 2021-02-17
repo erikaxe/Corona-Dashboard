@@ -31,8 +31,11 @@ export class TotalComponent implements OnInit {
     this.country = country;
   }
 
+  // Function to get RealtimeData from service and pass the country the user selected
   getData(){
-    alert('getDataExecuted');
+    this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

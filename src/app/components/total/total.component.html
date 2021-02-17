@@ -6,7 +6,7 @@
     <label>Country</label>
     
     <!-- When the value changes On select box, execute getCountry -->
-    <select ><!-- (change)="getCountry($event.target.value)" -->
+    <select (change)="getCountry($event.target.value!)">
         <!-- Loop through countriesArray and get and set value from the Slug from the API -->
         <option *ngFor="let country of countriesArray" value={{country.Slug}}>
             <!-- Return the name of the country -->
