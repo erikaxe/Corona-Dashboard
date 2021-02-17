@@ -7,12 +7,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { TotalComponent } from './components/total/total.component';
 import { DailyComponent } from './components/daily/daily.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'total', component: TotalComponent },
   { path: 'daily', component: DailyComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -27,4 +29,5 @@ export const routingComponents = [
   HomeComponent,
   TotalComponent,
   DailyComponent,
+  ContactComponent,
 ];

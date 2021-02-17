@@ -14,17 +14,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { TotalComponent } from './components/total/total.component';
 import { HomeComponent } from './components/home/home.component';
 import { DailyComponent } from './components/daily/daily.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 /* Service imports */
 
 @NgModule({
+  // Components
   declarations: [
     AppComponent,
     HeaderComponent,
     TotalComponent,
     HomeComponent,
-    DailyComponent
+    DailyComponent,
+    ContactComponent
   ],
+  // Modules
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +37,7 @@ import { DailyComponent } from './components/daily/daily.component';
     MatButtonModule,
     MatCardModule,
   ],
+  // Services
   providers: [],
   bootstrap: [AppComponent]
 })
