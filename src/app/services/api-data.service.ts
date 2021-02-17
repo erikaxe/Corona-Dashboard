@@ -21,7 +21,7 @@ export class ApiDataService {
     return this.http.get<any>(url);
   }
 
-  // Function to get Covid-19 statistic + dynamic country selection
+  // Function to get Covid-19 statistic + dynamic country selection from the user
   getRealtimeData(country: string): Observable<any> {
     const url = 'https://api.covid19api.com/total/dayone/country/' + country;
     return this.http.get<any>(url);

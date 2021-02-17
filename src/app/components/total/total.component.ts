@@ -14,6 +14,12 @@ export class TotalComponent implements OnInit {
   countriesArray = [] as any;
   country = [] as any;
 
+
+  // Variables for the data
+  confirmed!: number;
+  recovered!: number;
+  deaths!: number;
+
   // Get the service and set it to aboutService
   constructor(private apiDataService: ApiDataService) {}
 
@@ -26,15 +32,25 @@ export class TotalComponent implements OnInit {
     });
   }
 
+
   // Function that holds the country the user selected
   getCountry(country: any){
-    this.country = country;
+    if (country.value !== null){
+      this.country = country.value;
+    }
   }
 
   // Function to get RealtimeData from service and pass the country the user selected
+  // tslint:disable-next-line: typedef
   getData(){
     this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
       console.log(data);
+      // Get last object from the API
+      const i = data.length - 1;
+      // Get the specific data from last object in the API
+      this.confirmed = data[i].Confirmed;
+      this.recovered = data[i].Recovered;
+      this.deaths = data[i].Deaths;
     });
   }
 
