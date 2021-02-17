@@ -1,0 +1,12 @@
+#navBar {
+    #navItem {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+  }
+
+$background: #488ff894;
+.active {
+  background: $background;
+  border-radius: 4px;
+}
