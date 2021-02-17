@@ -1,4 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
+
+// Service imports
+import { ApiDataService } from './../../services/api-data.service';
 
 @Component({
   selector: 'app-total',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TotalComponent implements OnInit {
 
-  constructor() { }
+  countriesArray = [] as any;
+  country = [] as any;
+
+  // Get the service and set it to aboutService
+  constructor(private apiDataService: ApiDataService) {}
 
   ngOnInit(): void {
+    // Get the data from service, and subscribe
+    this.apiDataService.getCountries().subscribe((data) => {
+      console.log(data);
+      // Place the subscribed data into countriesArray
+      this.countriesArray = data;
+    });
+  }
+
+  // Function that holds the country the user selected
+  getCountry(country: any){
+    this.country = country;
+  }
+
+  getData(){
+    alert('getDataExecuted');
   }
 
 }

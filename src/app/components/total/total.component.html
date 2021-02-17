@@ -1,2 +1,23 @@
 <app-header></app-header>
 <p>total works!</p>
+
+<div>
+    <h1>Corona virus</h1>
+    <label>Country</label>
+    
+    <!-- When the value changes On select box, execute getCountry -->
+    <select ><!-- (change)="getCountry($event.target.value)" -->
+        <!-- Loop through countriesArray and get and set value from the Slug from the API -->
+        <option *ngFor="let country of countriesArray" value={{country.Slug}}>
+            <!-- Return the name of the country -->
+            {{country.Country}}
+        </option>
+    </select>
+    
+    <br>
+    <!-- Temporary button to get data -->
+    <button (click)="getData()">Get Corona data</button>
+    <h1>Total cases:</h1>
+    <h1>Total recovered:</h1>
+    <h1>Total deaths:</h1>
+</div>

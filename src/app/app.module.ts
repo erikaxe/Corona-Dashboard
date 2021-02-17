@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 
 /* Component imports */
@@ -26,7 +27,7 @@ import { ContactComponent } from './components/contact/contact.component';
     TotalComponent,
     HomeComponent,
     DailyComponent,
-    ContactComponent
+    ContactComponent,
   ],
   // Modules
   imports: [
@@ -36,6 +37,7 @@ import { ContactComponent } from './components/contact/contact.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule,
   ],
   // Services
   providers: [],
