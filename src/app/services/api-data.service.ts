@@ -15,7 +15,7 @@ export class ApiDataService {
   // Create http and set it to perform HTTP requests
   constructor(private http: HttpClient) {}
 
-  // Function to get countries
+  // Function to get countries from API
   getCountries(): Observable<any> {
     const url = 'https://api.covid19api.com/countries';
     return this.http.get<any>(url);

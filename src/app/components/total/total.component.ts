@@ -26,7 +26,6 @@ export class TotalComponent implements OnInit {
   ngOnInit(): void {
     // Get the data from service, and subscribe
     this.apiDataService.getCountries().subscribe((data) => {
-      console.log(data);
       // Place the subscribed data into countriesArray
       this.countriesArray = data;
     });
@@ -34,7 +33,10 @@ export class TotalComponent implements OnInit {
 
 
   // Function that holds the country the user selected
+  // tslint:disable-next-line: typedef
   getCountry(country: any){
+
+    // Null check to get around "possible null error" on select element
     if (country.value !== null){
       this.country = country.value;
     }
@@ -44,13 +46,15 @@ export class TotalComponent implements OnInit {
   // tslint:disable-next-line: typedef
   getData(){
     this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
-      console.log(data);
+
       // Get last object from the API
       const i = data.length - 1;
+
       // Get the specific data from last object in the API
       this.confirmed = data[i].Confirmed;
       this.recovered = data[i].Recovered;
       this.deaths = data[i].Deaths;
+      console.log(data);
     });
   }
 

@@ -6,7 +6,7 @@
     <label>Country</label>
     
     <!-- When the value changes On select box, execute getCountry !!!!!!!!!!!!!!!ADD MORE INFO!!!!!!!!!!!!!!!! -->
-    <select (change)="getCountry($event.target)"> <!-- ERROR, Tror det kommer för att den "initiate" som null  -->
+    <select (change)="getCountry($event.target)">
         <!-- Loop through countriesArray and get and set value from the Slug from the API -->
         <option *ngFor="let country of countriesArray" value={{country.Slug}}>
             <!-- Return the name of the selected country -->
@@ -17,7 +17,7 @@
     <br>
     <!-- Temporary button to get data -->
     <button (click)="getData()">Get Corona data</button>
-    <h1>Total cases:</h1>
-    <h1>Total recovered:</h1>
-    <h1>Total deaths:</h1>
+    <h1>Total cases:{{confirmed}}</h1>
+    <h1>Total recovered:{{recovered}}</h1>
+    <h1>Total deaths:{{deaths}}</h1>
 </div>
