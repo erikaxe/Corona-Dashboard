@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  formGroup: FormGroup;
+
+  constructor() {
+    /* Setting up the formgroup */
+    this.formGroup = new FormGroup({
+      // Tell FormControl that emailField is required and need to have the value of a email adress
+      emailField: new FormControl('', [
+
+        // Ensure that the control for the email input field is not empty
+        Validators.required,
+
+        // Ensure that the control’s value matches the specified regex pattern
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+
+        // Ensure that the email input is 6 or more chracters
+        /* Validators.minLength(6), */
+
+        // Ensure that the email input is not more then 320 characters
+        Validators.maxLength(320)
+        ])
+    });
+   }
 
   ngOnInit(): void {
+  }
+
+  // Function for the error message
+  getErrorMessage(control: any): string {
+    // Don't say anything if control doesn't exist, or is valid
+    if (!control || control.valid) {
+      return '';
+    }
+
+    // Different error messages
+    if (control.hasError('required')) {
+      return 'Cannot be empty';
+    }
+    if (control.hasError('pattern')) {
+      return 'Must be a valid email';
+    }
+    /* if (control.hasError('minLength')) {
+      const limit = control.getError('minlength').requiredLength;
+      return `Email must be at least ${limit} characters`;
+    } */
+
+    /* !!!!!!!!!!!!!!!!Error, Never gets displayed!!!!!!!!!!!!!!!!!!! */
+    if (control.hasError('maxLength')) {
+      const limit = control.getError('maxlength').requiredLength;
+      return `Email must be no more then ${limit} characters`;
+    }
+
+    // Default general error message
+    return 'Invalid input';
+  }
+
+  onSubmit(): void {
+    // Reset the formGroup on submit
+    this.formGroup.reset();
+  }
+  // Function to get email field
+  get emailField(): any {
+    return this.formGroup.get('emailField');
   }
 
 }
