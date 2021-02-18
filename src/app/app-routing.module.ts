@@ -1,4 +1,5 @@
 
+
 /* Module imports */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -6,14 +7,14 @@ import { RouterModule, Routes } from '@angular/router';
 /* Component imports */
 import { HomeComponent } from './components/home/home.component';
 import { TotalComponent } from './components/total/total.component';
-import { DailyComponent } from './components/daily/daily.component';
+import { GlobalComponent } from './components/global/global.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'total', component: TotalComponent },
-  { path: 'daily', component: DailyComponent },
+  { path: 'global', component: GlobalComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
@@ -28,6 +29,6 @@ export class AppRoutingModule { }
 export const routingComponents = [
   HomeComponent,
   TotalComponent,
-  DailyComponent,
+  GlobalComponent,
   ContactComponent,
 ];

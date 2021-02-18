@@ -9,9 +9,6 @@ import { catchError } from 'rxjs/operators'; */
 })
 export class ApiDataService {
 
-  /* private apiUrl = 'https://api.covid19api.com';
-  private apiCountries = 'https://api.covid19api.com/countries'; */
-
   // Create http and set it to perform HTTP requests
   constructor(private http: HttpClient) {}
 

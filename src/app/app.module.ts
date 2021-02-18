@@ -14,8 +14,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TotalComponent } from './components/total/total.component';
 import { HomeComponent } from './components/home/home.component';
-import { DailyComponent } from './components/daily/daily.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { GlobalComponent } from './components/global/global.component';
 
 /* Service imports */
 
@@ -26,8 +26,8 @@ import { ContactComponent } from './components/contact/contact.component';
     HeaderComponent,
     TotalComponent,
     HomeComponent,
-    DailyComponent,
     ContactComponent,
+    GlobalComponent,
   ],
   // Modules
   imports: [

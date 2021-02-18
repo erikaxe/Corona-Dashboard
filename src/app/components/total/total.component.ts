@@ -11,7 +11,9 @@ import { ApiDataService } from './../../services/api-data.service';
 })
 export class TotalComponent implements OnInit {
 
+  // Array that contains all countries from the API
   countriesArray = [] as any;
+  // Array that contains the country the user selected
   country = [] as any;
 
 
@@ -47,7 +49,7 @@ export class TotalComponent implements OnInit {
   getData(){
     this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
 
-      // Get last object from the API
+      // Get latest object from the API
       const i = data.length - 1;
 
       // Get the specific data from last object in the API
