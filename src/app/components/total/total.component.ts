@@ -21,6 +21,7 @@ export class TotalComponent implements OnInit {
   confirmed!: number;
   recovered!: number;
   deaths!: number;
+  countryFlag!: any;
 
   // Get the service and set it to aboutService
   constructor(private apiDataService: ApiDataService) {}
@@ -54,7 +55,7 @@ export class TotalComponent implements OnInit {
       this.confirmed = data.cases;
       this.recovered = data.recovered;
       this.deaths = data.deaths;
-      console.log(data);
+      this.countryFlag = data.countryInfo.flag;
     });
   }
 
