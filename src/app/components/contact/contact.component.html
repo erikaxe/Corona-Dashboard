@@ -1,4 +1,11 @@
 <app-header></app-header>
+<mat-card>
+  <ul>
+    <li *ngFor="let instructions of avoidCoronaArray">
+      {{instructions.description}}
+    </li>
+  </ul>
+</mat-card>
 <mat-card class="text-center">
     <div class="contact">
         <h2>Do you want us to send you more information about Covid-19?</h2>
