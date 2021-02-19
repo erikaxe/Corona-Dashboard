@@ -22,9 +22,6 @@ export class ContactComponent implements OnInit {
         // Ensure that the control’s value matches the specified regex pattern
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
 
-        // Ensure that the email input is 6 or more chracters
-        /* Validators.minLength(6), */
-
         // Ensure that the email input is not more then 320 characters
         Validators.maxLength(320)
         ])
@@ -48,13 +45,8 @@ export class ContactComponent implements OnInit {
     if (control.hasError('pattern')) {
       return 'Must be a valid email';
     }
-    /* if (control.hasError('minLength')) {
-      const limit = control.getError('minlength').requiredLength;
-      return `Email must be at least ${limit} characters`;
-    } */
 
-    /* !!!!!!!!!!!!!!!!Error, Never gets displayed!!!!!!!!!!!!!!!!!!! */
-    if (control.hasError('maxLength')) {
+    if (control.hasError('maxlength')) {
       const limit = control.getError('maxlength').requiredLength;
       return `Email must be no more then ${limit} characters`;
     }
