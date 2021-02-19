@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AvoidCoronaService } from './../../services/avoid-corona.service';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor() {
+  // Create array
+  avoidCoronaArray = [] as any;
+
+  // Get the service and set it to avoidCoronaService
+  constructor(private avoidCoronaService: AvoidCoronaService) {
+
     /* Setting up the formgroup */
     this.formGroup = new FormGroup({
       // Tell FormControl that emailField is required and need to have the value of a email adress
@@ -29,6 +36,10 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Get the avoid-corona data from service, and subscribe
+    this.avoidCoronaService.getCoronaInfo().subscribe((data) => {
+      this.avoidCoronaArray = data;
+    });
   }
 
   // Function for the error message
@@ -64,5 +75,7 @@ export class ContactComponent implements OnInit {
   get emailField(): any {
     return this.formGroup.get('emailField');
   }
+
+
 
 }
