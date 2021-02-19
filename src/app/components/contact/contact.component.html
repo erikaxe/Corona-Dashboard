@@ -14,7 +14,7 @@
             <mat-error *ngIf="emailField.invalid">{{ getErrorMessage(emailField) }}</mat-error>
           </mat-form-field>
         </div>
-        <!-- If the email field is valid, then we show the button -->
+        <!-- If the email field is valid, then show the button -->
       <button class="mt-4" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="formGroup.invalid">Submit Feedback</button>
     </div>
 </mat-card>
