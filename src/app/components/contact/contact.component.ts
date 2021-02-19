@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
         Validators.maxLength(320)
         ])
     });
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -59,6 +59,7 @@ export class ContactComponent implements OnInit {
     // Reset the formGroup on submit
     this.formGroup.reset();
   }
+
   // Function to get email field
   get emailField(): any {
     return this.formGroup.get('emailField');
