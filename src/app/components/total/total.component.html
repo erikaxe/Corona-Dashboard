@@ -6,14 +6,14 @@
     <!-- When the value changes on select box, execute getCountry -->
     <select (change)="getCountry($event.target)">
         <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
-        <option *ngFor="let country of countriesArray" value={{country.Slug}} (click)="getData()">
-            <!-- Return the name of the selected country -->
-            {{country.Country}}
+        <option *ngFor="let country of countriesArray" (click)="getData()"> <!-- value={{country.Slug}} removed to possibly fix keyvalue pipe -->
+            <!-- Return the name of each country -->
+            {{country.country}}
         </option>
     </select>
     
     <br>
-
+    <!-- Display the statistics in the view -->
     <h1>Total cases: {{confirmed}}</h1>
     <h1>Total recovered: {{recovered}}</h1>
     <h1>Total deaths: {{deaths}}</h1>
