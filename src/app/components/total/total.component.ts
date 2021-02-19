@@ -18,10 +18,13 @@ export class TotalComponent implements OnInit {
 
 
   // Variables for the data
-  confirmed!: number;
-  recovered!: number;
-  deaths!: number;
-  countryFlag!: any;
+  countryTotalCases!: number;
+  countryTotalRecovered!: number;
+  countryTotalDeaths!: number;
+  countryFlag!: string;
+  countryTodayCases!: number;
+  countryTodayDeaths!: number;
+  countryTodayRecovered!: number;
 
   // Get the service and set it to aboutService
   constructor(private apiDataService: ApiDataService) {}
@@ -52,10 +55,13 @@ export class TotalComponent implements OnInit {
     this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
 
       // Get the specified data from the API
-      this.confirmed = data.cases;
-      this.recovered = data.recovered;
-      this.deaths = data.deaths;
+      this.countryTotalCases = data.cases;
+      this.countryTotalRecovered = data.recovered;
+      this.countryTotalDeaths = data.deaths;
       this.countryFlag = data.countryInfo.flag;
+      this.countryTodayCases = data.todayCases;
+      this.countryTodayDeaths = data.todayDeaths;
+      this.countryTodayRecovered = data.todayRecovered;
     });
   }
 
