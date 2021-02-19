@@ -5,6 +5,8 @@
     <label>Pick A Country</label>
     <!-- When the value changes on select box, execute getCountry -->
     <select (change)="getCountry($event.target)">
+        <!-- Placeholder value -->
+        <option>Choose a country</option>
         <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
         <option *ngFor="let country of countriesArray" (click)="getData()"> <!-- value={{country.Slug}} removed to possibly fix keyvalue pipe -->
             <!-- Return the name of each country -->
