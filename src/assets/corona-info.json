@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "description": "Wash your hands often. Use soap and water or handsanitizer"
+    },
+    {
+        "id": 1,
+        "description": "Keep a safe distance to others that coughs or sneeze"
+    },
+    {
+        "id": 2,
+        "description": "Use a face mask when you cant keep a safe distance"
+    },
+    {
+        "id": 3,
+        "description": "Dont touch your eyes, nose or mouth"
+    },
+    {
+        "id": 4,
+        "description": "Cover your nose and mouth with your arm or a handkerchief when you cough or sneez"
+    },
+    {
+        "id": 5,
+        "description": "Stay at home if you are feeling sick"
+    },
+    {
+        "id": 6,
+        "description": "Seek medical aid if you have fewer, cough and struggle to breath"
+    },
+    {
+        "id": 7,
+        "description": "Call in advance so that you can be quickly referred to the right clinic. It protects you and prevents the virus and other infections from spreading to others"
+    }
+]
