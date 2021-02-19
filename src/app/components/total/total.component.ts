@@ -30,6 +30,7 @@ export class TotalComponent implements OnInit {
     this.apiDataService.getCountries().subscribe((data) => {
       // Place the subscribed data into countriesArray
       this.countriesArray = data;
+      console.log('!!!!!!!!!Country array from API!!!!!!!!!!!', this.countriesArray);
     });
   }
 
@@ -49,13 +50,10 @@ export class TotalComponent implements OnInit {
   getData(){
     this.apiDataService.getRealtimeData(this.country).subscribe((data) => {
 
-      // Get latest object from the API
-      const i = data.length - 1;
-
-      // Get the specific data from last object in the API
-      this.confirmed = data[i].Confirmed;
-      this.recovered = data[i].Recovered;
-      this.deaths = data[i].Deaths;
+      // Get the specified data from the API
+      this.confirmed = data.cases;
+      this.recovered = data.recovered;
+      this.deaths = data.deaths;
       console.log(data);
     });
   }
