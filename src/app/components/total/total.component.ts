@@ -1,4 +1,5 @@
 
+// Imports
 import { Component, OnInit } from '@angular/core';
 
 // Service imports
@@ -15,6 +16,9 @@ export class TotalComponent implements OnInit {
   countriesArray = [] as any;
   // Array that contains the country the user selected
   country = [] as any;
+
+  // Error variable will be called if request error
+  error!: string;
 
 
   // Variables for the data
@@ -62,6 +66,11 @@ export class TotalComponent implements OnInit {
       this.countryTodayCases = data.todayCases;
       this.countryTodayDeaths = data.todayDeaths;
       this.countryTodayRecovered = data.todayRecovered;
+
+    },
+      /* Catch error so we can print it in the view if needed*/
+      (error) => {
+      this.error = error;
     });
   }
 
