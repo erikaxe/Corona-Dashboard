@@ -22,7 +22,7 @@ export class ApiDataService {
 
   // Function to get Covid-19 statistic + dynamic country selection from the user
   getRealtimeData(country: string): Observable<any> {
-    const url = `https://corona.lmao.ninja/v2/countrie/${country}`;
+    const url = `https://corona.lmao.ninja/v2/countries/${country}`;
     // Return data for chosen country, if error, errorHandler will trigger
     return this.http.get<any>(url).pipe(catchError(this.errorHandler));
   }
