@@ -14,6 +14,8 @@ export class GlobalComponent implements OnInit {
   // Array that contains data from API
   globalArray = [] as any;
 
+  continentArray = [] as any;
+
   // Error variable will be called if request error
   error!: string;
 
@@ -31,6 +33,15 @@ export class GlobalComponent implements OnInit {
     /* Catch error so we can print it in the view if needed*/
     (error) => {
     this.error = error;
+    });
+
+    this.globalApiDataService.getContinentData().subscribe((data) => {
+      // Place the subscribed data into continentArray
+      this.continentArray = data;
+      console.log(data);
+    },
+    (error) => {
+      this.error = error;
     });
   }
 
