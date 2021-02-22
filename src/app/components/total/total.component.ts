@@ -25,10 +25,12 @@ export class TotalComponent implements OnInit {
   countryTotalCases!: number;
   countryTotalRecovered!: number;
   countryTotalDeaths!: number;
+  countryTotalActive!: number;
   countryFlag!: string;
   countryTodayCases!: number;
   countryTodayDeaths!: number;
   countryTodayRecovered!: number;
+  
 
   // Get the service and set it to aboutService
   constructor(private apiDataService: ApiDataService) {}
@@ -62,6 +64,7 @@ export class TotalComponent implements OnInit {
       this.countryTotalCases = data.cases;
       this.countryTotalRecovered = data.recovered;
       this.countryTotalDeaths = data.deaths;
+      this.countryTotalActive = data.active;
       this.countryFlag = data.countryInfo.flag;
       this.countryTodayCases = data.todayCases;
       this.countryTodayDeaths = data.todayDeaths;
