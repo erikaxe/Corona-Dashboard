@@ -12,7 +12,10 @@ export class ContactComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  // Create array
+  // Array for corona wiki info
+  coronaWikiInfo = [] as any;
+
+  // Create array for corona steps
   avoidCoronaArray = [] as any;
 
   // Get the service and set it to avoidCoronaService
@@ -39,6 +42,9 @@ export class ContactComponent implements OnInit {
     // Get the avoid-corona data from service, and subscribe
     this.avoidCoronaService.getCoronaInfo().subscribe((data) => {
       this.avoidCoronaArray = data;
+    });
+    this.avoidCoronaService.getCoronaWikiInfo().subscribe((data) => {
+      this.coronaWikiInfo = data;
     });
   }
 
