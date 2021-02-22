@@ -1,27 +1,41 @@
 <app-header></app-header>
-<mat-card>
-  <ul>
-    <li *ngFor="let instructions of avoidCoronaArray">
-      {{instructions.description}}
-    </li>
-  </ul>
-</mat-card>
-<mat-card class="text-center">
-    <div class="contact">
-        <h2>Do you want us to send you more information about Covid-19?</h2>
-        <h3>Please submit your email adress</h3>
-    </div>
-    <div id="formField" [formGroup]="formGroup">
-        <div>
-          <!-- Creating a form field -->
-          <mat-form-field >
-            <!-- Email input field with a email FormControl -->
-            <input matInput placeholder="Enter your email" [formControl]="emailField" required>
-            <!-- Checking if the email field is correct, call getErrorMessage(emailField) if invalid -->
-            <mat-error *ngIf="emailField.invalid">{{ getErrorMessage(emailField) }}</mat-error>
-          </mat-form-field>
-        </div>
-        <!-- If the email field is valid, then show the button -->
-      <button class="mt-4" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="formGroup.invalid">Submit Feedback</button>
-    </div>
-</mat-card>
+<div class="container">
+  <div class="d-block text-center">
+    <img class="corona" src="../../../assets/pictures/corona.png" alt="Picture of corona">
+  </div>
+  <h3 class="text-center"><strong> On this page we have summarized Covid-19. <br> We have also some steps you can follow that will help to minimize the spread of the virus</strong></h3>
+  <mat-card class="mb-5">
+      <h2>The Covid-19 virus summarized</h2>
+      <p *ngFor="let wikiInfo of coronaWikiInfo">
+        {{wikiInfo.description}}
+      </p>
+      <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic">Read more</a>
+  </mat-card>
+  <mat-card class="mb-5">
+    <h2>8 steps to follow to help stop the spread!</h2>
+    <ul>
+      <li *ngFor="let instructions of avoidCoronaArray">
+        {{instructions.description}}
+      </li>
+    </ul>
+  </mat-card>
+  <mat-card class="text-center mb-5">
+      <div class="contact">
+          <h2>Do you want us to send you more information about Covid-19?</h2>
+          <h3>Please submit your email adress</h3>
+      </div>
+      <div id="formField" [formGroup]="formGroup">
+          <div>
+            <!-- Creating a form field -->
+            <mat-form-field >
+              <!-- Email input field with a email FormControl -->
+              <input matInput placeholder="Enter your email" [formControl]="emailField" required>
+              <!-- Checking if the email field is correct, call getErrorMessage(emailField) if invalid -->
+              <mat-error *ngIf="emailField.invalid">{{ getErrorMessage(emailField) }}</mat-error>
+            </mat-form-field>
+          </div>
+          <!-- If the email field is valid, then show the button -->
+        <button class="mt-4" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="formGroup.invalid">Submit Feedback</button>
+      </div>
+  </mat-card>
+</div>
