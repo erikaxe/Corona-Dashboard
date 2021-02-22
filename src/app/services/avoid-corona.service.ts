@@ -11,6 +11,7 @@ import { catchError } from 'rxjs/operators'; */
 export class AvoidCoronaService {
   // Create url and give it access to userjson.json
   private url = '/assets/corona-info.json';
+  private infoUrl = '/assets/covid-19-wiki.json';
 
   // Create http and set it to perform HTTP requests
   constructor(private http: HttpClient) {}
@@ -18,5 +19,9 @@ export class AvoidCoronaService {
   // Get corona info from json
   getCoronaInfo(): Observable<any>{
     return this.http.get<any>(this.url);
+  }
+
+  getCoronaWikiInfo(): Observable<any>{
+    return this.http.get<any>(this.infoUrl);
   }
 }
