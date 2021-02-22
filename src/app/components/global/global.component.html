@@ -8,10 +8,17 @@
     <h1>Test units administered globaly: {{globalArray.tests}}</h1>
 </div>
 <br>
-<br>
 <div class="today">
     <h1>Todays cases: {{globalArray.todayCases}}</h1>
     <h1>Todays deaths: {{globalArray.todayDeaths}}</h1>
     <h1>Todays recovered: {{globalArray.todayRecovered}}</h1>
+</div>
+<br>
+<br>
+<div class="continents">
+    <h2>Confirmed per continent</h2>
+    <li *ngFor="let continent of continentArray">
+        <strong>{{continent.continent}}:</strong> Confirmed: {{continent.cases}}
+    </li>
 </div>
 
