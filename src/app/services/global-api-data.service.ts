@@ -20,6 +20,12 @@ export class GlobalApiDataService {
     return this.http.get<any>(url).pipe(catchError(this.errorHandler));
   }
 
+  getContinentData(): Observable<any> {
+    const url = 'https://corona.lmao.ninja/v2/continents/';
+    // Return continent data, if error, errorHandler will trigger
+    return this.http.get<any>(url).pipe(catchError(this.errorHandler));
+  }
+
   errorHandler(error: HttpErrorResponse){
     // Return error message from Angular OR return 'Server error'
     return observableThrowError(error.message || 'Server error');
