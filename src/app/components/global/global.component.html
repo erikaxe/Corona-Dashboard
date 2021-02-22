@@ -1,24 +1,47 @@
 <app-header></app-header>
-<div class="global">
+<div class="container text-center">
+    <div>
+        <img class="globe mt-5 mb-5" src="../../../assets/pictures/globe.png" alt="Picture of a globe">
+    </div>
     <!-- If error print out error message -->
     <h1>{{error}}</h1>
-    <h1>Global active cases: {{globalArray.active}}</h1>
-    <h1>Global deaths: {{globalArray.deaths}}</h1>
-    <h1>Global critical condition: {{globalArray.critical}}</h1>
-    <h1>Test units administered globaly: {{globalArray.tests}}</h1>
+    <div class="row justify-content-center">
+        <h1><strong>Global statistics</strong></h1>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Confirmed<h2 class="m-0">{{globalArray.active}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Deaths<h2 class="m-0">{{globalArray.deaths}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Critical<h2 class="m-0">{{globalArray.critical}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Test units<h2 class="m-0">{{globalArray.tests}}</h2></h1>
+        </div>
+    </div>
+    <br>
+    <div class="row mt-5 justify-content-center">
+        <h1><strong>Todays global statistics</strong></h1>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Confirmed<h2 class="m-0">{{globalArray.todayCases}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Deaths<h2 class="m-0">{{globalArray.todayDeaths}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Recovered<h2 class="m-0">{{globalArray.todayRecovered}}</h2></h1>
+        </div>
+    </div>
 </div>
-<br>
-<div class="today">
-    <h1>Todays cases: {{globalArray.todayCases}}</h1>
-    <h1>Todays deaths: {{globalArray.todayDeaths}}</h1>
-    <h1>Todays recovered: {{globalArray.todayRecovered}}</h1>
-</div>
+
+
 <br>
 <br>
-<div class="continents">
-    <h2>Confirmed per continent</h2>
-    <li *ngFor="let continent of continentArray">
+<div class="container">
+    <h1><strong>Confirmed per continent</strong></h1>
+    <ul class="list-group" *ngFor="let continent of continentArray">
         <strong>{{continent.continent}}:</strong> Confirmed: {{continent.cases}}
-    </li>
+    </ul>
 </div>
 
