@@ -1,11 +1,9 @@
 <app-header></app-header>
 
-<div>
-    <h1>Corona virus</h1>
-    <label>Pick A Country</label>
+<div class="container text-center">
     <!-- When the value changes on select box, execute getCountry -->
-    <select (change)="getCountry($event.target)">
-        <!-- Placeholder that cant be selected after getCountry is executed -->
+    <select class="selector fs-6 text-center mt-5" (change)="getCountry($event.target)">
+        <!-- Placeholder that will be disabled after getCountry is loaded -->
         <option [disabled]="getCountry">Choose a country</option>
         <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
         <option *ngFor="let country of countriesArray" (click)="getData()">
@@ -13,18 +11,39 @@
             {{country.country}}
         </option>
     </select>
-    <img src="{{countryFlag}}" id="flag">
+    <div>
+        <img src="{{countryFlag}}" id="flag">
+    </div>
     <!-- If error print out error message -->
     <h1>{{error}}</h1>
     <br>
     <!-- Display the statistics in the view -->
-    <h1>Confirmed: {{countryTotalCases}}</h1>
-    <h1>Recovered: {{countryTotalRecovered}}</h1>
-    <h1>Deaths: {{countryTotalDeaths}}</h1>
-    <h1>Active: {{countryTotalActive}}</h1>
+    <div class="country-total row justify-content-center">
+        <h1><strong>Total statistics</strong></h1>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Confirmed<h2 class="m-0">{{countryTotalCases}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Recovered<h2 class="m-0">{{countryTotalRecovered}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Deaths<h2 class="m-0">{{countryTotalDeaths}}</h2></h1>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h1 class="m-0">Active<h2 class="m-0">{{countryTotalActive}}</h2></h1>
+        </div>
+    </div>
+    <div class="country-today row mt-5 justify-content-center">
+        <h1><strong>Todays statistics</strong></h1>
+        <div class="col m-3 p-3 border bg-light">
+            <h2 class="m-0">Cases <h2 class="m-0">{{countryTodayCases}}</h2></h2>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h2 class="m-0">Recovered <h2 class="m-0">{{countryTodayRecovered}}</h2></h2>
+        </div>
+        <div class="col m-3 p-3 border bg-light">
+            <h2 class="m-0">Deaths <h2 class="m-0">{{countryTodayDeaths}}</h2></h2>
+        </div>
+    </div>
     <br>
-    <h2>Todays cases: {{countryTodayCases}}</h2>
-    <h2>Todays recovered: {{countryTodayRecovered}}</h2>
-    <h2>Todays deaths: {{countryTodayDeaths}}</h2>
-
 </div>
