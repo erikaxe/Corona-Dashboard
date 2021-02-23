@@ -77,4 +77,7 @@ export class TotalComponent implements OnInit {
     });
   }
 
+  // Function to trigger disabled property
+  disable(){}
+
 }
