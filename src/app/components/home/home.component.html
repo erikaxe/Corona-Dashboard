@@ -1,36 +1,44 @@
 <app-header></app-header>
-<mat-card class="text-center welcome-card">
-    <h1>This is an App where you can view reported statistics concerning the COVID-19 virus.</h1>
-    <a mat-raised-button routerLink="/total" routerLinkActive="active">Go to <strong>Total</strong> per country statistics</a>
-    <a mat-raised-button routerLink="/global" routerLinkActive="active">Go to <strong>Global</strong> statistics</a>
-</mat-card>
-
 <div class="container">
+    <mat-card class="text-center my-5">
+        <h2>This is an App where we have gathered statistics and information that can help us minimize the spread.</h2>
+    </mat-card>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
                 <div class="overlay-image">
                     <img src="../../../assets/pictures/slide 1 country.jpg" class="d-block w-100 slide-pic" alt="...">
                 </div>
-            <div class="carousel-caption d-md-block">
-              <h3>Statistics per country</h3>
-              <p>On this page you can get a live update of the Covid-19 virus per country</p>
-              <a class="m-4" mat-raised-button routerLink="/total" routerLinkActive="active">Go to <strong>country</strong> statistics</a>
-            </div>
+                <div class="carousel-caption d-md-block">
+                    <h3>Statistics per country</h3>
+                    <p>On this page you can get a live update of the Covid-19 virus per country</p>
+                    <a class="m-4" mat-raised-button routerLink="/total">Go to <strong>Country</strong> statistics</a>
+                </div>
           </div>
           <div class="carousel-item">
                 <div class="overlay-image">
                     <img src="../../../assets/pictures/slide 2 world.jpg" class="d-block w-100" alt="...">
                 </div>
-            <div class="carousel-caption"> <!-- d-none d-md-block -->
-              <h3>Global statistics</h3>
-              <p>On this page you can view the global statistics of Covid-19</p>
-              <a class="m-4" mat-raised-button routerLink="/global" routerLinkActive="active">Go to <strong>Global</strong> statistics</a>
-            </div>
+                <div class="carousel-caption"> <!-- d-none d-md-block -->
+                    <h3>Global statistics</h3>
+                    <p>On this page you can view the global statistics of Covid-19</p>
+                    <a class="m-4" mat-raised-button routerLink="/global">Go to <strong>Global</strong> statistics</a>
+                </div>
+          </div>
+          <div class="carousel-item">
+                <div class="overlay-image">
+                    <img src="../../../assets/pictures/slide-3-add.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-caption"> <!-- d-none d-md-block -->
+                    <h3>Information & contact</h3>
+                    <p>On this page you can read more information about Covid-19 and sign up for our newsletter</p>
+                    <a class="m-4" mat-raised-button routerLink="/information&contact">Go to <strong>Info & Contact</strong></a>
+                </div>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
@@ -41,5 +49,29 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
+    </div>
+    <div class="container">
+        <div class="my-5 row">
+            <mat-card class="link-container mt-2 mx-2 col col-md-4">
+                <ul>
+                    <h3>Useful links to learn more</h3>
+                    <li><a href="https://www.who.int/">WHO</a></li>
+                    <li><a href="https://www.folkhalsomyndigheten.se/">Folkhälsomyndigheten</a></li>
+                    <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/Pfizer-BioNTech.html">Pfizer vaccine (CDC)</a></li>
+                    <li><a href="https://www.who.int/news-room/feature-stories/detail/the-oxford-astrazeneca-covid-19-vaccine-what-you-need-to-know">AstraZeneca vaccine (WHO)</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">Wikipedia-Covid-19</a></li>
+                </ul>  
+            </mat-card>
+            <mat-card class="link-container mt-2 mx-2 col">
+                <ul>
+                    <h3>Useful links to learn more 2</h3>
+                    <li><a href="https://www.who.int/">WHO</a></li>
+                    <li><a href="https://www.folkhalsomyndigheten.se/">Folkhälsomyndigheten</a></li>
+                    <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/Pfizer-BioNTech.html">Pfizer vaccine (CDC)</a></li>
+                    <li><a href="https://www.who.int/news-room/feature-stories/detail/the-oxford-astrazeneca-covid-19-vaccine-what-you-need-to-know">AstraZeneca vaccine (WHO)</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Coronavirus_disease_2019">Wikipedia-Covid-19</a></li>
+                </ul>  
+            </mat-card>
+        </div>
     </div>
 </div>
