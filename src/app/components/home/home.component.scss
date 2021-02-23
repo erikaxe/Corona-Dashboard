@@ -1,4 +1,4 @@
-.carousel-item{
+.carousel-one{
   background: rgb(0, 0, 0);
   background-position: center;
   background-size: cover;
@@ -9,6 +9,14 @@
   opacity: 0.7;
 }
 
-/* .link-container{
-  max-width: 25.5rem;
-} */
+#carousel-two-pic{
+  height: 9rem;
+}
+
+.carousel-cap-two p{
+  color: rgb(14, 13, 13) !important;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {   
+  background-color: rgba(0, 0, 0, 0.603); 
+}
