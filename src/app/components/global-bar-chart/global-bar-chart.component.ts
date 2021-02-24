@@ -1,5 +1,5 @@
 // Imports
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 // Service import
 import { GlobalApiDataService } from './../../services/global-api-data.service';
@@ -29,27 +29,46 @@ export type ChartOptions = {
 })
 export class GlobalBarChartComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
+  public chartOptions!: Partial<ChartOptions>;
+
+  continentArray = [] as any;
+
+  // is chartDataLoaded ?
+  chartDataLoaded = false;
 
   // Error variable will be called if request error
   error!: string;
 
-  continentArray = [] as any;
+  constructor(private globalApiDataService: GlobalApiDataService) {}
 
-  constructor(private globalApiDataService: GlobalApiDataService) {
+
+  updateChartOptions(): void {
+    const confirmed = [];
+    const deaths = [];
+    const critical = [];
+    const continents = [];
+
+    // Push data to each variable
+    for (const continent of this.continentArray){
+      confirmed.push(continent.cases);
+      deaths.push(continent.deaths);
+      critical.push(continent.critical);
+      continents.push(continent.continent);
+    }
+
     this.chartOptions = {
       series: [
         {
-          name: 'Temp Confirmed',
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          name: 'Confirmed',
+          data: confirmed
         },
         {
-          name: 'Temp Deaths',
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          name: 'Deaths',
+          data: deaths
         },
         {
-          name: 'Temp Critical condition',
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+          name: 'Critical condition',
+          data: critical
         }
       ],
       chart: {
@@ -65,20 +84,11 @@ export class GlobalBarChartComponent implements OnInit {
         enabled: false
       },
       xaxis: {
-        categories: [
-          'South Korea',
-          'Canada',
-          'United Kingdom',
-          'Netherlands',
-          'Italy',
-          'France',
-          'Japan',
-          'United States',
-          'China',
-          'Germany',
-        ]
+        categories: continents
       }
     };
+    // Data is loaded show chart
+    this.chartDataLoaded = true;
   }
 
   ngOnInit(): void {
@@ -86,13 +96,11 @@ export class GlobalBarChartComponent implements OnInit {
     this.globalApiDataService.getContinentData().subscribe((data) => {
       // Place the subscribed data into continentArray
       this.continentArray = data;
+      this.updateChartOptions();
       console.log(this.continentArray, 'LOG FRÅN continentArray Bar chart');
     },
     (error) => {
       this.error = error;
     });
   }
-
-
-
 }
