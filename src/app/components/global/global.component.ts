@@ -11,9 +11,10 @@ import { GlobalApiDataService } from './../../services/global-api-data.service';
 })
 export class GlobalComponent implements OnInit {
 
-  // Array that contains data from API
+  // Array that contains global data from API
   globalArray = [] as any;
 
+  // Array that contains continent data from API
   continentArray = [] as any;
 
   // Error variable will be called if request error
@@ -28,7 +29,7 @@ export class GlobalComponent implements OnInit {
     this.globalApiDataService.getGlobalData().subscribe((data) => {
       // Place the subscribed data into globalArray
       this.globalArray = data;
-      console.log(data);
+      console.log(this.globalArray, 'LOG FRÅN globalArray');
     },
     /* Catch error so we can print it in the view if needed*/
     (error) => {
@@ -38,11 +39,14 @@ export class GlobalComponent implements OnInit {
     this.globalApiDataService.getContinentData().subscribe((data) => {
       // Place the subscribed data into continentArray
       this.continentArray = data;
-      console.log(data);
+      console.log(this.continentArray, 'LOG FRÅN continentArray');
     },
     (error) => {
       this.error = error;
     });
+
+
+
   }
 
 }
