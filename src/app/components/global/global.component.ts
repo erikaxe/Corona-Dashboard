@@ -29,7 +29,6 @@ export class GlobalComponent implements OnInit {
     this.globalApiDataService.getGlobalData().subscribe((data) => {
       // Place the subscribed data into globalArray
       this.globalArray = data;
-      console.log(this.globalArray, 'LOG FRÅN globalArray');
     },
     /* Catch error so we can print it in the view if needed*/
     (error) => {
@@ -39,7 +38,6 @@ export class GlobalComponent implements OnInit {
     this.globalApiDataService.getContinentData().subscribe((data) => {
       // Place the subscribed data into continentArray
       this.continentArray = data;
-      console.log(this.continentArray, 'LOG FRÅN continentArray');
     },
     (error) => {
       this.error = error;
