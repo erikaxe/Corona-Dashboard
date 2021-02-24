@@ -21,8 +21,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { GlobalComponent } from './components/global/global.component';
 
-/* Service imports */
-
+/* Apex imports */
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { GlobalBarChartComponent } from './components/global-bar-chart/global-bar-chart.component';
 @NgModule({
   // Components
   declarations: [
@@ -32,6 +33,7 @@ import { GlobalComponent } from './components/global/global.component';
     HomeComponent,
     ContactComponent,
     GlobalComponent,
+    GlobalBarChartComponent,
   ],
   // Modules
   imports: [
@@ -47,6 +49,7 @@ import { GlobalComponent } from './components/global/global.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    NgApexchartsModule,
   ],
   // Services
   providers: [],
