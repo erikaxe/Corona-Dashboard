@@ -45,14 +45,14 @@ export class GlobalBarChartComponent implements OnInit {
   updateChartOptions(): void {
     const confirmed = [];
     const deaths = [];
-    const critical = [];
+    const recovered = [];
     const continents = [];
 
     // Push data to each variable
     for (const continent of this.continentArray){
       confirmed.push(continent.cases);
       deaths.push(continent.deaths);
-      critical.push(continent.critical);
+      recovered.push(continent.recovered);
       continents.push(continent.continent);
     }
 
@@ -63,12 +63,12 @@ export class GlobalBarChartComponent implements OnInit {
           data: confirmed
         },
         {
-          name: 'Deaths',
-          data: deaths
+          name: 'Recovered',
+          data: recovered
         },
         {
-          name: 'Critical condition',
-          data: critical
+          name: 'Deaths',
+          data: deaths
         }
       ],
       chart: {
@@ -97,7 +97,7 @@ export class GlobalBarChartComponent implements OnInit {
       // Place the subscribed data into continentArray
       this.continentArray = data;
       this.updateChartOptions();
-      console.log(this.continentArray, 'LOG FRÅN continentArray Bar chart');
+      console.log(this.continentArray);
     },
     (error) => {
       this.error = error;
