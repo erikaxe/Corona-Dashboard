@@ -1,9 +1,19 @@
 
 // Imports
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 // Service imports
 import { ApiDataService } from './../../services/api-data.service';
+
+// Chart imports
+import { ChartComponent, ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
+
+export type ChartOptions = {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+};
 
 @Component({
   selector: 'app-total',
@@ -11,6 +21,11 @@ import { ApiDataService } from './../../services/api-data.service';
   styleUrls: ['./total.component.scss']
 })
 export class TotalComponent implements OnInit {
+  @ViewChild('chart') chart!: ChartComponent;
+  public chartOptions!: Partial<ChartOptions>;
+
+  // is chartDataLoaded ?
+  chartDataLoaded = false;
 
   // Array that contains all countries from the API
   countriesArray = [] as any;
@@ -30,10 +45,16 @@ export class TotalComponent implements OnInit {
   countryTodayCases!: number;
   countryTodayDeaths!: number;
   countryTodayRecovered!: number;
-  
+
 
   // Get the service and set it to aboutService
-  constructor(private apiDataService: ApiDataService) {}
+  constructor(private apiDataService: ApiDataService) {
+    // Chart start
+
+
+
+  }
+
 
   ngOnInit(): void {
     // Get the data from service, and subscribe
@@ -53,6 +74,7 @@ export class TotalComponent implements OnInit {
     if (country.value !== null){
       this.country = country.value;
     }
+    /* console.log(this.country, 'SENSATE LOG'); */
   }
 
   // Function to get RealtimeData from service and pass the country the user selected
@@ -70,6 +92,30 @@ export class TotalComponent implements OnInit {
       this.countryTodayDeaths = data.todayDeaths;
       this.countryTodayRecovered = data.todayRecovered;
 
+      this.chartOptions = {
+        series: [ this.countryTotalCases, this.countryTotalRecovered, this.countryTotalDeaths],
+        chart: {
+          width: 380,
+          type: 'pie'
+        },
+        labels: ['Confirmed', 'Recovered', 'Deaths'],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 200
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        ]
+      };
+      // Data is loaded show chart
+      this.chartDataLoaded = true;
+
     },
       /* Catch error so we can print it in the view if needed*/
       (error) => {
@@ -78,6 +124,7 @@ export class TotalComponent implements OnInit {
   }
 
   // Function to trigger disabled property
+  // tslint:disable-next-line: typedef
   disable(){}
 
 }
