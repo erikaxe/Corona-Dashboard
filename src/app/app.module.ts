@@ -7,7 +7,6 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common'; // Temporary Import for pipes
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,6 +23,7 @@ import { GlobalComponent } from './components/global/global.component';
 /* Apex imports */
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { GlobalBarChartComponent } from './components/global-bar-chart/global-bar-chart.component';
+
 @NgModule({
   // Components
   declarations: [
@@ -44,14 +44,13 @@ import { GlobalBarChartComponent } from './components/global-bar-chart/global-ba
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     NgApexchartsModule,
   ],
-  // Services
+
   providers: [],
   bootstrap: [AppComponent]
 })
