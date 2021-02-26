@@ -39,12 +39,9 @@ export class GlobalComponent implements OnInit {
       // Place the subscribed data into continentArray
       this.continentArray = data;
     },
+    /* Catch error so we can print it in the view if needed*/
     (error) => {
       this.error = error;
     });
-
-
-
   }
-
 }
