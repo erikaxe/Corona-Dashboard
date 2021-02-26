@@ -8,6 +8,7 @@ import { ApiDataService } from './../../services/api-data.service';
 // Chart imports
 import { ChartComponent, ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
 
+// Export chart options
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
@@ -20,6 +21,7 @@ export type ChartOptions = {
   templateUrl: './total.component.html',
   styleUrls: ['./total.component.scss']
 })
+
 export class TotalComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions>;
@@ -48,12 +50,7 @@ export class TotalComponent implements OnInit {
 
 
   // Get the service and set it to aboutService
-  constructor(private apiDataService: ApiDataService) {
-    // Chart start
-
-
-
-  }
+  constructor(private apiDataService: ApiDataService) {}
 
 
   ngOnInit(): void {
@@ -64,7 +61,6 @@ export class TotalComponent implements OnInit {
       console.log('!!!!!!!!!Country array from API!!!!!!!!!!!', this.countriesArray);
     });
   }
-
 
   // Function that holds the country the user selected
   // tslint:disable-next-line: typedef
@@ -92,7 +88,9 @@ export class TotalComponent implements OnInit {
       this.countryTodayDeaths = data.todayDeaths;
       this.countryTodayRecovered = data.todayRecovered;
 
+      // Chart starts
       this.chartOptions = {
+        //
         series: [ this.countryTotalCases, this.countryTotalRecovered, this.countryTotalDeaths],
         chart: {
           width: 380,
