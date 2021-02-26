@@ -14,6 +14,7 @@ import {
   ApexPlotOptions
 } from 'ng-apexcharts';
 
+// Export chart options
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -31,6 +32,7 @@ export class GlobalBarChartComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions>;
 
+  // Array containing continent
   continentArray = [] as any;
 
   // is chartDataLoaded ?
@@ -41,14 +43,15 @@ export class GlobalBarChartComponent implements OnInit {
 
   constructor(private globalApiDataService: GlobalApiDataService) {}
 
-
+  // Function to update chart
   updateChartOptions(): void {
+    // Variables containing the data
     const confirmed = [];
     const deaths = [];
     const recovered = [];
     const continents = [];
 
-    // Push data to each variable
+    // Loop through continentArray and push data to each variable
     for (const continent of this.continentArray){
       confirmed.push(continent.cases);
       deaths.push(continent.deaths);
@@ -56,7 +59,9 @@ export class GlobalBarChartComponent implements OnInit {
       continents.push(continent.continent);
     }
 
+    // Chart starts
     this.chartOptions = {
+      // Chart bars for each category, place variables as data
       series: [
         {
           name: 'Confirmed',
@@ -84,9 +89,12 @@ export class GlobalBarChartComponent implements OnInit {
         enabled: false
       },
       xaxis: {
+        // Place continents variable in chart
         categories: continents
       }
     };
+    // Chart ends
+
     // Data is loaded show chart
     this.chartDataLoaded = true;
   }
@@ -99,6 +107,7 @@ export class GlobalBarChartComponent implements OnInit {
       this.updateChartOptions();
       console.log(this.continentArray);
     },
+    /* Catch error so we can print it in the view if needed*/
     (error) => {
       this.error = error;
     });
