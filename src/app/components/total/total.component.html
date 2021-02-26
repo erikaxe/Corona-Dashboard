@@ -46,8 +46,7 @@
         </div>
     </div>
     <br>
-    <!-- Send selected to child component -->
-    <!-- <app-country-pie-chart (change)="getCountry($event.target)"></app-country-pie-chart> -->
+    <!-- Chart html -->
     <div class="justify-content-center d-flex border bg-light" *ngIf="chartDataLoaded" id="chart">
         <apx-chart
           [series]="chartOptions.series"
