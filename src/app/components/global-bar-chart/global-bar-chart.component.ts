@@ -50,7 +50,7 @@ export class GlobalBarChartComponent implements OnInit {
     const deaths = [];
     const recovered = [];
     const continents = [];
-
+    console.log(this.continentArray, 'QQQQQQQQQQQQQQQQQQQQQ');
     // Loop through continentArray and push data to each variable
     for (const continent of this.continentArray){
       confirmed.push(continent.cases);
@@ -98,6 +98,8 @@ export class GlobalBarChartComponent implements OnInit {
     // Data is loaded show chart
     this.chartDataLoaded = true;
   }
+
+
 
   ngOnInit(): void {
 
