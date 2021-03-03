@@ -1,8 +1,9 @@
 <app-header></app-header>
 
 <div class="container text-center">
+    <h3 class="mt-5">Choose a country in the list below to display its statistics</h3>
     <!-- When the value changes on select box, execute getCountry -->
-    <select class="selector fs-6 text-center mt-5" (change)="getCountry($event.target)">
+    <select class="selector fs-6 text-center" (change)="getCountry($event.target)">
         <!-- Placeholder that will be disabled -->
         <option [disabled]="disable">Choose a country</option>
         <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
@@ -33,7 +34,7 @@
             <h1 class="m-0">Active<h2 class="m-0">{{countryTotalActive}}</h2></h1>
         </div>
     </div>
-    <div class="country-today row mt-5 justify-content-center">
+    <div class="country-today row my-5 justify-content-center">
         <h1><strong>Todays reported statistics</strong></h1>
         <div class="col m-3 p-3 border bg-light">
             <h2 class="m-0">Cases <h2 class="m-0">{{countryTodayCases}}</h2></h2>
@@ -47,7 +48,7 @@
     </div>
     <br>
     <!-- Chart html -->
-    <div class="justify-content-center d-flex border bg-light" *ngIf="chartDataLoaded" id="chart">
+    <div class="justify-content-center d-flex" *ngIf="chartDataLoaded" id="chart">
         <apx-chart
           [series]="chartOptions.series"
           [chart]="chartOptions.chart"
@@ -55,4 +56,6 @@
           [responsive]="chartOptions.responsive"
         ></apx-chart>
     </div>
+    <app-user-interactive-chart></app-user-interactive-chart>
+    <!-- <app-static-chart></app-static-chart> Static chart endast till test av charts, ska ej sparas -->
 </div>
