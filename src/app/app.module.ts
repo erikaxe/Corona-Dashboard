@@ -23,6 +23,9 @@ import { GlobalComponent } from './components/global/global.component';
 /* Apex imports */
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { GlobalBarChartComponent } from './components/global-bar-chart/global-bar-chart.component';
+import { UserInteractiveChartComponent } from './components/user-interactive-chart/user-interactive-chart.component';
+import { StaticChartComponent } from './components/static-chart/static-chart.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   // Components
@@ -34,6 +37,9 @@ import { GlobalBarChartComponent } from './components/global-bar-chart/global-ba
     ContactComponent,
     GlobalComponent,
     GlobalBarChartComponent,
+    UserInteractiveChartComponent,
+    StaticChartComponent,
+    FooterComponent,
   ],
   // Modules
   imports: [
