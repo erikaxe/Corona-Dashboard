@@ -1,0 +1,25 @@
+<hr class="my-5">
+<h3 class="mt-5">Compare countries statistics in the chart below by adding countries using the list</h3>
+
+<select class="selector fs-6 text-center" (change)="getCountry($event.target)">
+    <!-- Placeholder that will be disabled -->
+    <option [disabled]="disable">Choose a country</option>
+    <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
+    <option *ngFor="let country of countriesArray" (click)="getData()">
+        <!-- Return the name of each country -->
+        {{country.country}}
+    </option>
+</select>
+
+<div id="chart"> <!-- *ngIf="chartDataLoaded" -->
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [xaxis]="chartOptions.xaxis"
+      [yaxis]="chartOptions.yaxis"
+      [title]="chartOptions.title"
+    ></apx-chart>
+    <a mat-button class="border mb-5" (click)="resetChart()">Reset chart</a>
+</div>
