@@ -1,0 +1,16 @@
+.footer{
+    min-height: 10rem;
+}
+
+li, h3{
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+li:hover, h3:hover{
+    color: orange;
+}
+
+.logo{
+    opacity: 40%;
+}
