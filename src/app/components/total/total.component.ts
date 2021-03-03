@@ -58,7 +58,7 @@ export class TotalComponent implements OnInit {
     this.apiDataService.getCountries().subscribe((data) => {
       // Place the subscribed data into countriesArray
       this.countriesArray = data;
-      console.log('!!!!!!!!!Country array from API!!!!!!!!!!!', this.countriesArray);
+      console.log('!!!!!!!!!Country array log från total.component.ts!!!!!!!!!!!', this.countriesArray);
     });
   }
 
@@ -70,7 +70,6 @@ export class TotalComponent implements OnInit {
     if (country.value !== null){
       this.country = country.value;
     }
-    /* console.log(this.country, 'SENSATE LOG'); */
   }
 
   // Function to get RealtimeData from service and pass the country the user selected
