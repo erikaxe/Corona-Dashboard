@@ -58,7 +58,6 @@ export class TotalComponent implements OnInit {
     this.apiDataService.getCountries().subscribe((data) => {
       // Place the subscribed data into countriesArray
       this.countriesArray = data;
-      console.log('!!!!!!!!!Country array log från total.component.ts!!!!!!!!!!!', this.countriesArray);
     });
   }
 
@@ -89,7 +88,6 @@ export class TotalComponent implements OnInit {
 
       // Chart starts
       this.chartOptions = {
-        //
         series: [ this.countryTotalCases, this.countryTotalRecovered, this.countryTotalDeaths],
         chart: {
           width: 380,
@@ -110,6 +108,7 @@ export class TotalComponent implements OnInit {
           }
         ]
       };
+      // Chart ends
       // Data is loaded show chart
       this.chartDataLoaded = true;
 

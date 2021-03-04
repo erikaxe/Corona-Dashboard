@@ -81,7 +81,4 @@ export class ContactComponent implements OnInit {
   get emailField(): any {
     return this.formGroup.get('emailField');
   }
-
-
-
 }

@@ -1,5 +1,5 @@
 // Imports
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 // Service import
 import { GlobalApiDataService } from './../../services/global-api-data.service';
@@ -50,7 +50,7 @@ export class GlobalBarChartComponent implements OnInit {
     const deaths = [];
     const recovered = [];
     const continents = [];
-    console.log(this.continentArray, 'QQQQQQQQQQQQQQQQQQQQQ');
+
     // Loop through continentArray and push data to each variable
     for (const continent of this.continentArray){
       confirmed.push(continent.cases);
@@ -61,7 +61,7 @@ export class GlobalBarChartComponent implements OnInit {
 
     // Chart starts
     this.chartOptions = {
-      // Chart bars for each category, place variables as data
+      // Chart bars for each category
       series: [
         {
           name: 'Confirmed',
@@ -99,15 +99,13 @@ export class GlobalBarChartComponent implements OnInit {
     this.chartDataLoaded = true;
   }
 
-
-
   ngOnInit(): void {
 
     this.globalApiDataService.getContinentData().subscribe((data) => {
       // Place the subscribed data into continentArray
       this.continentArray = data;
+      // Call updateChartOptions
       this.updateChartOptions();
-      console.log(this.continentArray);
     },
     /* Catch error so we can print it in the view if needed*/
     (error) => {
