@@ -10,3 +10,14 @@ $background: #488ff894;
   background: $background;
   border-radius: 4px;
 }
+
+.logo{
+  width: 8rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+  .logo{
+      display: none;
+  }
+}
