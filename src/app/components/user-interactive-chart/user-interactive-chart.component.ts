@@ -156,7 +156,6 @@ export class UserInteractiveChartComponent implements OnInit {
         data: this.deaths
       }
     ];
-    this.chartOptions.xaxis = this.xaxis;
   }
 
   // Function to reset the chart
@@ -186,6 +185,7 @@ export class UserInteractiveChartComponent implements OnInit {
         data: this.deaths
       }
     ];
+    // Force chart update
     this.chartOptions.xaxis = this.xaxis;
   }
 
