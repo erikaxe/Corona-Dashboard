@@ -6,7 +6,7 @@
     <select class="selector fs-6 text-center" (change)="getCountry($event.target)">
         <!-- Placeholder that will be disabled -->
         <option [disabled]="disable">Choose a country</option>
-        <!-- Loop through countriesArray and get and set value from the Slug from the API, on click get the specified data -->
+        <!-- Loop through countriesArray, on click get the specified data -->
         <option *ngFor="let country of countriesArray" (click)="getData()">
             <!-- Return the name of each country -->
             {{country.country}}
