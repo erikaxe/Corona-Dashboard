@@ -133,13 +133,13 @@ export class UserInteractiveChartComponent implements OnInit {
     });
   }
 
-  // Update chart
+  // Update chart with new country
   setData(country: any): void {
     // Push new data
     this.cases.push(country.cases);
     this.recovered.push(country.recovered);
     this.deaths.push(country.deaths);
-    // Update categories to country names
+    // Update categories with country names
     this.xaxis.categories.push(country.country);
     // Update chart series with new data
     this.chartOptions.series = [
@@ -156,7 +156,6 @@ export class UserInteractiveChartComponent implements OnInit {
         data: this.deaths
       }
     ];
-    //
     this.chartOptions.xaxis = this.xaxis;
   }
 
