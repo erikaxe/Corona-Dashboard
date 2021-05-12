@@ -1,5 +1,7 @@
 # CoronaDashboard
 
+This is an app I made for my final project in my Angular course
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
 
 ## Development server
